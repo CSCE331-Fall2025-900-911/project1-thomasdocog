@@ -3,35 +3,57 @@
 <head>
   <meta charset="utf-8">
   <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <hr>
+  <button id="darkModeBtn">Change style</button>
+  <div class="page">
+    <h1 style="grid-column:1/3;">Portfolio</h1>
 
-  <h1>Portfolio</h1>
+    <div class="project">
+      <h2>Live ASL Translator</h2>
+      <a href="https://www.youtube.com/shorts/BBUfTR9v8K4" target="_blank">
+        <img class="thumb" src="https://img.youtube.com/vi/BBUfTR9v8K4/0.jpg" alt="ASL Translator Demo">
+      </a>
+      <p>Click Image To View Demo</p>
+    </div>
 
-  <h2>Live ASL Translator</h2>
-  <a href="https://www.youtube.com/shorts/BBUfTR9v8K4" target="_blank">
-    <img src="https://img.youtube.com/vi/BBUfTR9v8K4/0.jpg" alt="ASL Translator Demo">
-  </a>
-  <p>Click Image To View Demo</p>
-<p></p>
-<p>I, with my friends Dayo and Gavin, built this live ASL Letter Translator for our submission to TidalHack 2024.
-  It was my first Hackathon and we ended up placing!
-</p>
+    <div class="project">
+      <h2>Cashlyn Finance</h2>
+      <a href="https://www.youtube.com/watch?v=LGqHcKto2vI" target="_blank">
+        <img class="thumb" src="https://img.youtube.com/vi/LGqHcKto2vI/0.jpg" alt="Cashlyn Finance Demo">
+      </a>
+      <p>Click Image To View Demo</p>
+    </div>
 
-  <h2>Cashlyn Finance</h2>
-  <a href="https://www.youtube.com/watch?v=LGqHcKto2vI" target="_blank">
-    <img src="https://img.youtube.com/vi/LGqHcKto2vI/0.jpg" alt="Cashlyn Finance Demo">
-  </a>
-  <p>Click Image To View Demo</p>
-<p></p>
-<p>I also build this AI finicail literacy agent with my friends Aryan and Dayo. This was our submission for TAMUHACK 2025.'
-  We got honorable mention for the USAA challenge. 
-</p>
+    <div class="project" style="grid-column:1/3;">
+      <h2>LEGO eBay Price Appraiser (WIP)</h2>
+      <p>Currently, I using SAM 2.1 to Dino v2 to identify legos in ebay listing and evaluating if the listing is a good deal</p>
+    </div>
 
-  <h2>LEGO eBay Price Appraiser (WIP)</h2>
-  <p>Currently, I using SAM 2.1 to Dino v2 to identify legos in ebay listing and evaluating if the listing is a good deal</p>
+    <div style="grid-column:1/3; text-align:center;"><a href="index.html">Back</a></div>
+  </div>
 
-  <p><a href="index.html">Back</a></p>
+  <script>
+    const btn = document.getElementById('darkModeBtn');
+
+    function enableStyle() {
+      document.body.classList.add('siteTheme', 'dark-mode');
+      localStorage.setItem('siteStyle', '1');
+    }
+
+    function disableStyle() {
+      document.body.classList.remove('siteTheme', 'dark-mode');
+      localStorage.setItem('siteStyle', '0');
+    }
+
+    btn.addEventListener('click', () => {
+      if (document.body.classList.contains('siteTheme')) disableStyle(); else enableStyle();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('siteStyle') === '1') enableStyle();
+    });
+  </script>
 </body>
 </html>

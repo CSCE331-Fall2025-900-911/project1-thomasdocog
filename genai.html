@@ -3,11 +3,47 @@
 <head>
   <meta charset="utf-8">
   <title>GenAI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>GenAI</h1>
-  <p>Under construction...</p>
-  <p><a href="index.html">Back</a></p>
-  <!-- Here is a comment added for a change -->
+<body class="cooldog">
+  <button id="darkModeBtn">Change style</button>
+  <h1 style="text-align:center; font-size:2.5em; margin-top:24px;">🐶 The Cool Dog Page 🐾</h1>
+  <img class="dog-img" src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Cool Dog">
+  <div class="dog-facts">
+    <h2>Fun Dog Facts</h2>
+    <ul>
+      <li>Dogs can learn over 100 words and gestures!</li>
+      <li>The Basenji is the only dog that can't bark.</li>
+      <li>Dogs' sense of smell is 40x better than humans.</li>
+      <li>Some dogs can run up to 45 mph (like Greyhounds)!</li>
+      <li>Dogs dream just like people do.</li>
+    </ul>
+  </div>
+  <div class="dog-quote">“Dogs do speak, but only to those who know how to listen.”<br>– Orhan Pamuk</div>
+  <div style="text-align:center; margin-top:32px;">
+    <a href="index.html">Back</a>
+  </div>
+
+  <script>
+    const btn = document.getElementById('darkModeBtn');
+
+    function enableStyle() {
+      document.body.classList.add('siteTheme', 'dark-mode');
+      localStorage.setItem('siteStyle', '1');
+    }
+
+    function disableStyle() {
+      document.body.classList.remove('siteTheme', 'dark-mode');
+      localStorage.setItem('siteStyle', '0');
+    }
+
+    btn.addEventListener('click', () => {
+      if (document.body.classList.contains('siteTheme')) disableStyle(); else enableStyle();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('siteStyle') === '1') enableStyle();
+    });
+  </script>
 </body>
 </html>

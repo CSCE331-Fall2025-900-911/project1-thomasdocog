@@ -1,0 +1,37 @@
+/* Default minimal styles (applied by default) */
+#darkModeBtn { margin: 12px; padding: 8px 12px; border-radius: 6px; border: none; background: #333; color: #fff; cursor: pointer; }
+img { max-width: 100%; height: auto; }
+.profile-pic { max-width: 220px; width: 100%; display: block; margin: 12px 0; border-radius: 12px; }
+.song-thumb { max-width: 420px; width: 100%; display: block; margin: 8px 0; border-radius: 10px; }
+.thumb { max-width: 420px; width: 100%; display: block; margin: 8px 0; border-radius: 8px; }
+.service-img { max-width: 320px; width: 100%; display: block; margin: 8px 0; border-radius: 8px; }
+.dog-img { max-width: 420px; width: 90%; display: block; margin: 16px 0; border-radius: 12px; }
+
+/* Theme rules — only active when body has the siteTheme class. dark-mode refines colors. */
+body.siteTheme { font-family: system-ui, Arial, sans-serif; }
+body.siteTheme.dark-mode { background-color: #181818; color: #f1f1f1; }
+body.siteTheme.dark-mode a { color: #9ecbff; }
+body.siteTheme.dark-mode img { filter: brightness(0.85) contrast(1.05); }
+
+/* Landing layout when themed */
+body.siteTheme .container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; margin: 18px auto; align-items: start; }
+body.siteTheme .left, body.siteTheme .right { padding: 12px; }
+body.siteTheme .profile-pic { width: 100%; max-width: 300px; border-radius: 12px; display: block; margin: 0 auto; }
+body.siteTheme .song-thumb { width: 100%; max-width: 420px; border-radius: 10px; display: block; margin: 8px auto; }
+
+/* Portfolio / Generic page grid when themed */
+body.siteTheme .page { max-width: 900px; margin: 18px auto; padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+body.siteTheme .project, body.siteTheme .card { padding: 8px; border-radius: 8px; }
+body.siteTheme .thumb { width: 100%; border-radius: 8px; }
+
+/* Service page specifics when themed */
+body.siteTheme .service-img { width: 100%; max-width: 320px; border-radius: 8px; display: block; margin: 0 auto; }
+
+/* GenAI / Cool dog theme (scoped under siteTheme so it only applies when enabled) */
+body.siteTheme.cooldog { font-family: 'Comic Sans MS', cursive, sans-serif; background: linear-gradient(135deg, #f9e7c4 0%, #f7cac9 100%); color: #2d2d2d; min-height: 100vh; }
+body.siteTheme.dark-mode.cooldog { background: linear-gradient(135deg, #232526 0%, #414345 100%); color: #f1f1f1; }
+body.siteTheme .dog-img { display: block; margin: 32px auto 16px auto; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); max-width: 400px; width: 90%; }
+body.siteTheme .dog-facts { background: rgba(255,255,255,0.7); border-radius: 16px; padding: 18px; margin: 24px auto; max-width: 500px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+body.siteTheme.dark-mode .dog-facts { background: rgba(40,40,40,0.7); }
+body.siteTheme .dog-quote { font-size: 1.3em; font-style: italic; margin: 32px auto 16px auto; text-align: center; color: #b8860b; }
+body.siteTheme.dark-mode .dog-quote { color: #ffd700; }

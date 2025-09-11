@@ -3,28 +3,58 @@
 <head>
   <meta charset="utf-8">
   <title>Landing</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hi, I am Thomas Docog</h1>
+  <button id="darkModeBtn">Change style</button>
+  <div class="container">
+    <div class="left">
+      <h1>Hi, I am Thomas Docog</h1>
+      <img class="profile-pic" src="images/thomasPic.jpg" alt="Thomas">
 
-  <h2>This is me</h2>
-  <img src="images/thomasPic.jpg">
+      <h2>Fun facts about me</h2>
+      <ul>
+        <li>I've lived in south korea for a summer before college started</li>
+        <li>I've traveled to over 10 countries now</li>
+        <li>I used to hold a World Record as a kid</li>
+        <li>For about week in 2019, my squad held the Fortnite xbox kill record for squads (54 which used to be a lot)</li>
+      </ul>
+    </div>
 
-  <h2>My fav song recently</h2>
-  <p><a href="https://youtu.be/PvmKHAxnH3U?si=nBb9Icjfz7yUUvqA">song link</a></p>
+    <div class="right">
+      <h2>My fav song recently</h2>
+      <a href="https://youtu.be/PvmKHAxnH3U?si=nBb9Icjfz7yUUvqA" target="_blank">
+        <img class="song-thumb" src="https://img.youtube.com/vi/PvmKHAxnH3U/0.jpg" alt="Song thumbnail">
+      </a>
 
-  <h2>Fun facts about me</h2>
-  <ul>
-    <li>I've lived in south korea for a summer before college started</li>
-    <li>I've traveled to over 10 countries now</li>
-    <li>I used to hold a World Record as a kid</li>
-    <li>For about week in 2019, my squad held the Fortnite xbox kill record for squads (54 which used to be a lot)</li>
-  </ul>
+      <h2>Pages</h2>
+      <p><a href="portfolio.html">Portfolio</a></p>
+      <p><a href="qualifications.html">Qualifications</a></p>
+      <p><a href="service.html">Service</a></p>
+      <p><a href="genai.html">GenAI</a></p>
+    </div>
+  </div>
 
-  <h2>Pages</h2>
-  <p><a href="portfolio.html">Portfolio</a></p>
-  <p><a href="qualifications.html">Qualifications</a></p>
-  <p><a href="service.html">Service</a></p>
-  <p><a href="genai.html">GenAI</a></p>
+  <script>
+    const btn = document.getElementById('darkModeBtn');
+
+    function enableStyle() {
+      document.body.classList.add('siteTheme', 'dark-mode');
+      localStorage.setItem('siteStyle', '1');
+    }
+
+    function disableStyle() {
+      document.body.classList.remove('siteTheme', 'dark-mode');
+      localStorage.setItem('siteStyle', '0');
+    }
+
+    btn.addEventListener('click', () => {
+      if (document.body.classList.contains('siteTheme')) disableStyle(); else enableStyle();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('siteStyle') === '1') enableStyle();
+    });
+  </script>
 </body>
 </html>

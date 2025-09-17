@@ -1,0 +1,50 @@
+/* Style 2: Alt layout and colors (scoped under body.siteTheme.style2) */
+/* Base/links */
+body.siteTheme.style2 { font-family: Georgia, serif; }
+body.siteTheme.style2.dark-mode { background: radial-gradient(1200px 600px at 10% -10%, #0b1220 0%, #0a0f1a 40%, #070b12 100%); color: #e6f0f5; }
+body.siteTheme.style2.dark-mode a { color: #64d7c8; }
+body.siteTheme.style2.dark-mode img { filter: brightness(0.95) contrast(1.05); }
+
+/* Landing layout tweaks */
+/* Switch to left rail layout with stacked main content */
+body.siteTheme.style2 { min-height: 100vh; padding-left: 260px; }
+body.siteTheme.style2 .container { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 960px; margin: 24px auto; align-items: start; padding: 0 16px; }
+body.siteTheme.style2 .left, body.siteTheme.style2 .right { padding: 0; }
+body.siteTheme.style2 h1, body.siteTheme.style2 h2 { text-transform: uppercase; letter-spacing: 0.04em; text-align: center; }
+body.siteTheme.style2 .profile-pic { width: 100%; max-width: 240px; border-radius: 999px; display: block; margin: 0 auto; border: 3px solid #2dd4bf; box-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+body.siteTheme.style2 .song-thumb { width: 100%; max-width: 520px; border-radius: 14px; display: block; margin: 10px auto; border: 2px solid #7c3aed; box-shadow: 0 8px 30px rgba(124,58,237,0.25); }
+
+/* Portfolio / Generic page layout tweaks */
+/* Main content area (non-landing) uses 3-up grid */
+body.siteTheme.style2 .page { max-width: 1100px; margin: 24px auto; padding: 0 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: start; justify-items: stretch; }
+@media (max-width: 900px) { body.siteTheme.style2 .page { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { body.siteTheme.style2 .page { grid-template-columns: 1fr; } }
+body.siteTheme.style2 .page > h1 { grid-column: 1 / -1; text-align: center; margin-bottom: 8px; }
+body.siteTheme.style2 .page .wide { grid-column: 1 / -1; }
+
+/* Embedded PDF sizing for resume */
+body.siteTheme.style2 .resume-embed .embed iframe { width: 100%; height: 720px; border: 0; border-radius: 14px; box-shadow: 0 8px 28px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
+@media (max-width: 900px) { body.siteTheme.style2 .resume-embed .embed iframe { height: 560px; } }
+@media (max-width: 640px) { body.siteTheme.style2 .resume-embed .embed iframe { height: 420px; } }
+body.siteTheme.style2 .project, body.siteTheme.style2 .card { padding: 14px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06); }
+body.siteTheme.style2 .thumb { width: 100%; border-radius: 12px; box-shadow: 0 6px 22px rgba(0,0,0,0.25); }
+
+/* Service page specifics */
+body.siteTheme.style2 .service-img { width: 100%; max-width: 360px; border-radius: 12px; display: block; margin: 0 auto; box-shadow: 0 8px 26px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.06); }
+
+/* Header nav for style 2 */
+/* Transform nav into a vertical left rail */
+body.siteTheme.style2 .site-nav { position: fixed; left: 0; top: 0; bottom: 0; width: 240px; display: flex; flex-direction: column; gap: 8px; padding: 18px 16px; background: linear-gradient(180deg, rgba(20,31,51,0.9) 0%, rgba(14,22,38,0.9) 100%); border-right: 1px solid rgba(100, 215, 200, 0.25); box-shadow: 4px 0 24px rgba(0,0,0,0.2); overflow-y: auto; }
+body.siteTheme.style2 .site-nav a { text-decoration: none; font-weight: 700; letter-spacing: 0.02em; color: #e6f0f5; padding: 10px 12px; border-radius: 8px; transition: background 0.2s ease, transform 0.08s ease; }
+body.siteTheme.style2 .site-nav a:hover { background: rgba(100, 215, 200, 0.12); transform: translateX(2px); }
+
+/* Style the toggles distinctly in Style 2 */
+body.siteTheme.style2 #style2Btn { background: #2dd4bf; color: #102027; }
+body.siteTheme.style2 #darkModeBtn { background: transparent; color: #e6f0f5; border: 1px solid rgba(255,255,255,0.25); }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  body.siteTheme.style2 { padding-left: 0; }
+  body.siteTheme.style2 .site-nav { position: sticky; top: 0; left: auto; right: auto; bottom: auto; width: auto; height: auto; flex-direction: row; gap: 12px; justify-content: center; border-right: none; border-bottom: 1px solid rgba(100, 215, 200, 0.25); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+  body.siteTheme.style2 .container, body.siteTheme.style2 .page { margin-top: 18px; }
+}

@@ -3,10 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title>Landing</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-  <button id="darkModeBtn">Change style</button>
+  <button id="darkModeBtn">First Style</button>
+  <button id="style2Btn">Second Style</button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="qualifications.html">Qualifications</a>
+    <a href="service.html">Service</a>
+    <a href="genai.html">GenAI</a>
+  </nav>
   <div class="container">
     <div class="left">
       <h1>Hi, I am Thomas Docog</h1>
@@ -16,8 +25,8 @@
       <ul>
         <li>I've lived in south korea for a summer before college started</li>
         <li>I've traveled to over 10 countries now</li>
-        <li>I used to hold a World Record as a kid</li>
-        <li>For about week in 2019, my squad held the Fortnite xbox kill record for squads (54 which used to be a lot)</li>
+        <li>I used to hold a <a href="https://www.chron.com/news/article/matze-breaks-unofficial-guinness-world-record-1383362.php"> World Record</a> as a kid</li>
+        <li>For about week in 2019, my squad held the Fortnite xbox kill <a href="https://www.instagram.com/p/BuSEtCBlgGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="> record for squads</a> (54 which used to be a lot)</li>
       </ul>
     </div>
 
@@ -36,24 +45,23 @@
   </div>
 
   <script>
-    const btn = document.getElementById('darkModeBtn');
+    const btn1 = document.getElementById('darkModeBtn');
+    const btn2 = document.getElementById('style2Btn');
 
-    function enableStyle() {
+    function setStyle(which) {
       document.body.classList.add('siteTheme', 'dark-mode');
-      localStorage.setItem('siteStyle', '1');
+      document.body.classList.remove('style1', 'style2');
+      if (which === '1') document.body.classList.add('style1');
+      if (which === '2') document.body.classList.add('style2');
+      localStorage.setItem('siteStyleChoice', which);
     }
 
-    function disableStyle() {
-      document.body.classList.remove('siteTheme', 'dark-mode');
-      localStorage.setItem('siteStyle', '0');
-    }
-
-    btn.addEventListener('click', () => {
-      if (document.body.classList.contains('siteTheme')) disableStyle(); else enableStyle();
-    });
+    btn1.addEventListener('click', () => setStyle('1'));
+    btn2.addEventListener('click', () => setStyle('2'));
 
     window.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('siteStyle') === '1') enableStyle();
+      const pref = localStorage.getItem('siteStyleChoice') || '1';
+      setStyle(pref);
     });
   </script>
 </body>

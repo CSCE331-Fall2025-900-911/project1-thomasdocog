@@ -3,10 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>GenAI</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
 </head>
-<body class="cooldog">
-  <button id="darkModeBtn">Change style</button>
+<body class="siteTheme dark-mode cooldog">
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="qualifications.html">Qualifications</a>
+    <a href="service.html">Service</a>
+    <a href="genai.html">GenAI</a>
+  </nav>
   <h1 style="text-align:center; font-size:2.5em; margin-top:24px;">🐶 The Cool Dog Page 🐾</h1>
   <img class="dog-img" src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Cool Dog">
   <div class="dog-facts">
@@ -20,30 +26,6 @@
     </ul>
   </div>
   <div class="dog-quote">“Dogs do speak, but only to those who know how to listen.”<br>– Orhan Pamuk</div>
-  <div style="text-align:center; margin-top:32px;">
-    <a href="index.html">Back</a>
-  </div>
-
-  <script>
-    const btn = document.getElementById('darkModeBtn');
-
-    function enableStyle() {
-      document.body.classList.add('siteTheme', 'dark-mode');
-      localStorage.setItem('siteStyle', '1');
-    }
-
-    function disableStyle() {
-      document.body.classList.remove('siteTheme', 'dark-mode');
-      localStorage.setItem('siteStyle', '0');
-    }
-
-    btn.addEventListener('click', () => {
-      if (document.body.classList.contains('siteTheme')) disableStyle(); else enableStyle();
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('siteStyle') === '1') enableStyle();
-    });
-  </script>
+  
 </body>
 </html>

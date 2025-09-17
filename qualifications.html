@@ -3,16 +3,34 @@
 <head>
   <meta charset="utf-8">
   <title>Qualifications</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-  <button id="darkModeBtn">Change style</button>
+  <button id="darkModeBtn">First Style</button>
+  <button id="style2Btn">Second Style</button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="qualifications.html">Qualifications</a>
+    <a href="service.html">Service</a>
+    <a href="genai.html">GenAI</a>
+  </nav>
   <div class="page">
-    <h1 style="grid-column:1/3;">Qualifications</h1>
+    <h1>Qualifications</h1>
 
-    <div class="card">
+    <div class="card wide resume-embed">
       <h2>Resume</h2>
-      <p><a href="images/ThomasDocogResume.pdf">resume link</a></p>
+      <div class="embed">
+        <iframe
+          src="https://drive.google.com/file/d/1KyfXu4VLOsM1FVoO93RDkfQ-gSpC1q2C/preview"
+          title="Thomas Docog Resume"
+          allow="autoplay"
+        ></iframe>
+      </div>
+      <p style="text-align:center; margin-top:8px;">
+        <a href="https://drive.google.com/uc?export=download&id=1KyfXu4VLOsM1FVoO93RDkfQ-gSpC1q2C" target="_blank" rel="noopener">Download PDF</a>
+      </p>
     </div>
 
     <div class="card">
@@ -36,34 +54,33 @@
     <div class="card">
       <h2>Currently Reading</h2>
       <ul>
-        <li>Programming Massively Parallel Processors: A Hands-on Approach</li>
-        <li>Structure and Interpretation of Computer Programs 🐐🐐🐐</li>
-        <li>C++17 in Detail: Learn the Exciting Features of the New C++ Standard!</li>
+        <li><a href="https://learning.oreilly.com/library/view/programming-massively-parallel/9780323984638/">Programming Massively Parallel Processors: A Hands-on Approach </a></li>
+        <li><a href="https://web.mit.edu/6.001/6.037/sicp.pdf">Structure and Interpretation of Computer Programs </a>🐐🐐🐐</li>
+        <li><a href="https://www.cppindetail.com/">C++17 in Detail: Learn the Exciting Features of the New C++ Standard! </a></li>
       </ul>
     </div>
 
-    <div style="grid-column:1/3; text-align:center;"><a href="index.html">Back</a></div>
+    
   </div>
 
   <script>
-    const btn = document.getElementById('darkModeBtn');
+    const btn1 = document.getElementById('darkModeBtn');
+    const btn2 = document.getElementById('style2Btn');
 
-    function enableStyle() {
+    function setStyle(which) {
       document.body.classList.add('siteTheme', 'dark-mode');
-      localStorage.setItem('siteStyle', '1');
+      document.body.classList.remove('style1', 'style2');
+      if (which === '1') document.body.classList.add('style1');
+      if (which === '2') document.body.classList.add('style2');
+      localStorage.setItem('siteStyleChoice', which);
     }
 
-    function disableStyle() {
-      document.body.classList.remove('siteTheme', 'dark-mode');
-      localStorage.setItem('siteStyle', '0');
-    }
-
-    btn.addEventListener('click', () => {
-      if (document.body.classList.contains('siteTheme')) disableStyle(); else enableStyle();
-    });
+    btn1.addEventListener('click', () => setStyle('1'));
+    btn2.addEventListener('click', () => setStyle('2'));
 
     window.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('siteStyle') === '1') enableStyle();
+      const pref = localStorage.getItem('siteStyleChoice') || '1';
+      setStyle(pref);
     });
   </script>
 </body>

@@ -1,5 +1,6 @@
-/* Default minimal styles (applied by default) */
+/* Style 1: Default minimal styles (applied by default) */
 #darkModeBtn { margin: 12px; padding: 8px 12px; border-radius: 6px; border: none; background: #333; color: #fff; cursor: pointer; }
+#style2Btn { margin: 12px 12px 12px 0; padding: 8px 12px; border-radius: 6px; border: none; background: #555; color: #fff; cursor: pointer; }
 img { max-width: 100%; height: auto; }
 .profile-pic { max-width: 220px; width: 100%; display: block; margin: 12px 0; border-radius: 12px; }
 .song-thumb { max-width: 420px; width: 100%; display: block; margin: 8px 0; border-radius: 10px; }
@@ -23,6 +24,14 @@ body.siteTheme .song-thumb { width: 100%; max-width: 420px; border-radius: 10px;
 body.siteTheme .page { max-width: 900px; margin: 18px auto; padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
 body.siteTheme .project, body.siteTheme .card { padding: 8px; border-radius: 8px; }
 body.siteTheme .thumb { width: 100%; border-radius: 8px; }
+/* Ensure headers and any .wide item span full width */
+body.siteTheme .page > h1 { grid-column: 1 / -1; text-align: center; }
+body.siteTheme .page .wide { grid-column: 1 / -1; }
+
+/* Embedded PDF sizing for resume */
+body.siteTheme .resume-embed .embed iframe { width: 100%; height: 700px; border: 0; border-radius: 12px; box-shadow: 0 6px 22px rgba(0,0,0,0.25); }
+@media (max-width: 900px) { body.siteTheme .resume-embed .embed iframe { height: 560px; } }
+@media (max-width: 640px) { body.siteTheme .resume-embed .embed iframe { height: 420px; } }
 
 /* Service page specifics when themed */
 body.siteTheme .service-img { width: 100%; max-width: 320px; border-radius: 8px; display: block; margin: 0 auto; }
@@ -35,3 +44,9 @@ body.siteTheme .dog-facts { background: rgba(255,255,255,0.7); border-radius: 16
 body.siteTheme.dark-mode .dog-facts { background: rgba(40,40,40,0.7); }
 body.siteTheme .dog-quote { font-size: 1.3em; font-style: italic; margin: 32px auto 16px auto; text-align: center; color: #b8860b; }
 body.siteTheme.dark-mode .dog-quote { color: #ffd700; }
+
+/* Simple header nav (only styled when themed) */
+body.siteTheme .site-nav { max-width: 900px; margin: 0 auto 12px auto; padding: 8px 12px; display: flex; gap: 14px; border-bottom: 1px solid #ddd; }
+body.siteTheme.dark-mode .site-nav { border-color: #333; }
+body.siteTheme .site-nav a { text-decoration: none; font-weight: 600; }
+body.siteTheme .site-nav a:hover { text-decoration: underline; }
